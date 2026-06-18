@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skills | Portfolio</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* ===== GLOBAL ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    z-index:1000;
+
+    background:rgba(15,23,42,.85);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:700;
+    color:#8b5cf6;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    color:white;
+    cursor:pointer;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#8b5cf6;
+}
+
+/* ===== SKILLS ===== */
+
+.skills-section{
+    padding:140px 8% 80px;
+    text-align:center;
+}
+
+.skills-section h1{
+    font-size:4rem;
+    color:#8b5cf6;
+    margin-bottom:20px;
+}
+
+.skills-text h2{
+    color:#cbd5e1;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:25px;
+    margin-top:25px;
+}
+
+.skill-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+
+    padding:30px;
+    min-height:180px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transition:.3s;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    border-color:#8b5cf6;
+    box-shadow:0 0 25px rgba(139,92,246,.4);
+}
+
+.skill-card i{
+    font-size:3rem;
+    color:#8b5cf6;
+    margin-bottom:15px;
+}
+
+.skill-card h3{
+    margin-bottom:10px;
+}
+.skill-category{
+    margin-top:60px;
+}
+
+.skill-category h2{
+    color:#8b5cf6;
+    margin-bottom:25px;
+    text-align:left;
+    font-size:2rem;
+}
+
+/* ===== CERTIFICATIONS ===== */
+
+.certifications-section{
+    padding:50px 8% 100px;
+    text-align:center;
+}
+
+.certifications-section h1{
+    font-size:4rem;
+    color:#8b5cf6;
+    margin-bottom:40px;
+}
+.certificate-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.certificate-card{
+    width:400px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+
+    padding:30px;
+
+    transition:.3s;
+}
+
+.certificate-card:hover{
+    transform:translateY(-10px);
+    border-color:#8b5cf6;
+    box-shadow:0 0 25px rgba(139,92,246,.4);
+}
+
+.certificate-card i{
+    font-size:3rem;
+    color:#8b5cf6;
+    margin-bottom:15px;
+}
+
+.certificate-card p{
+    color:#cbd5e1;
+    margin-top:10px;
+}
+.certificate-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.certificate-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#8b5cf6;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.certificate-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+  .skills-section h1,
+    .certifications-section h1{
+        font-size:3rem;
+    }
+    .menu-toggle{
+    display:block;
+}
+
+.nav-links{
+    display:none;
+    position:absolute;
+    top:80px;
+    left:15px;
+    right:auto;
+    width:180px;
+
+    background:#1e293b;
+    border-radius:15px;
+
+    flex-direction:column;
+    padding:20px;
+    gap:20px;
+}
+
+.nav-links.active{
+    display:flex;
+}
+
+   
+      .certificate-grid{
+        grid-template-columns:1fr;
+    }
+
+
+}
+
+</style>
+
+</head>
+
+<body>
+    
+<!-- NAVBAR -->
+
+<nav class="navbar">
+<div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+</div>
+<div class="logo"></div>
+
+<ul class="nav-links" id="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- SKILLS -->
+<section class="skills-section">
+<h1>My Skills</h1>
+
+<p class="skills-text">
+   <h2> Technologies, tools and frameworks I use to build
+    modern and responsive web applications.</h2>
+</p>
+
+<!-- Frontend -->
+
+<div class="skill-category">
+
+    <h2>Frontend Development</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <i class="fa-brands fa-html5"></i>
+            <h3>HTML</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h3>CSS</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-js"></i>
+            <h3>JavaScript</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-react"></i>
+            <h3>React</h3>
+        </div>
+
+    </div>
+
+</div>
+<!-- Database -->
+
+<div class="skill-category">
+
+    <h2>Database</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <i class="fa-solid fa-database"></i>
+            <h3>MongoDB</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-table"></i>
+            <h3>MySQL</h3>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Tools -->
+
+<div class="skill-category">
+
+    <h2>Tools & Platforms</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <i class="fa-brands fa-git-alt"></i>
+            <h3>Git</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-github"></i>
+            <h3>GitHub</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-code"></i>
+            <h3>VS Code</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-globe"></i>
+            <h3>Netlify</h3>
+        </div>
+         <div class="skill-card">
+            <i class="fa-solid fa-robot"></i>
+            <h3>ChatGPT</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h3>GitHub Copilot</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-brain"></i>
+            <h3>Gemini AI</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-comments"></i>
+            <h3>claude AI</h3>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Learning -->
+
+<div class="skill-category">
+
+    <h2>Currently Learning</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>MERN Stack</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-link"></i>
+            <h3>REST APIs</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <h3>Responsive Design</h3>
+        </div>
+
+    </div>
+
+</div>
+</section>
+<!-- CERTIFICATIONS -->
+
+
+<section class="certifications-section">
+
+    <h1>Certifications</h1>
+
+    <div class="certificate-grid">
+
+        <div class="certificate-card">
+
+            <img src="JS.png"
+                 alt="JavaScript Certificate">
+
+            <h3>JavaScript</h3>
+
+            <a href="JS.png"
+               target="_blank"
+               class="certificate-btn">
+               View Certificate
+            </a>
+
+        </div>
+
+        <div class="certificate-card">
+
+            <img src="Python.png"
+                 alt="Python Certificate">
+
+            <h3>Python</h3>
+
+            <a href="Python.png"
+               target="_blank"
+               class="certificate-btn">
+               View Certificate
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+</section>
+<script>
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+if(menuToggle && navLinks){
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+})};
+
+</script>
+
+
+</body>
+</html>
